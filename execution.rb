@@ -1,3 +1,10 @@
 require_relative 'board.rb'
+require_relative 'move_validator.rb'
+require_relative 'rook.rb'
 
-Board.new("simple_board.txt")
+b = Board.new("simpler_board.txt")
+puts ""
+
+m = MoveValidator.new(b, "simpler_moves.txt")
+puts ""
+puts m.check_moves
