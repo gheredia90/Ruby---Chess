@@ -35,9 +35,10 @@ class MoveValidator
 
 	def check_moves
 		result = @moves_grid.map {|moves| puts check_move(moves[0], moves[1]) }
+		puts ""
 	end	
 
-	def check_move(initial_position, final_position)
+	def check_move(initial_position, final_position)		
 		piece_color, piece_type = @board.get_piece(initial_position)[0], @board.get_piece(initial_position)[1]
 		destination_color = @board.get_piece(final_position)[0]
 		free_space = piece_color == destination_color ? false : true 

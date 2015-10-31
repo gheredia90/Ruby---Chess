@@ -48,7 +48,13 @@ class Board
 	end
 	
 	def get_pieces_in_diagonal(initial_row, final_row, initial_column, final_column)
-	
+		array_pieces = []
+		middle_columns = Array(initial_column..final_column).tap(&:pop).tap(&:shift)
+		middle_rows = Array(initial_row..final_row).tap(&:pop).tap(&:shift)
+		middle_rows.size.times do |i|
+			array_pieces << @grid[middle_rows[i]][middle_columns[i]]
+		end
+		array_pieces
 	end	
 
 	def empty_path?(array_pieces)
@@ -59,6 +65,13 @@ class Board
 		end		
 		return true
 	end	
+
+	def get_distance(initial_position, final_position)
+		initial_row, initial_column = get_position(initial_position)
+		final_row, final_column = get_position(final_position)
+		distance = (final_row - initial_row)**2 + (final_column - initial_column)**2
+	end	
+
 
 	def human_move_to_coordinate(human_position)
       mapping = {}

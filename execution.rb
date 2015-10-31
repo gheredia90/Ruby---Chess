@@ -13,3 +13,4 @@ puts ""
 m = MoveValidator.new(b, "simpler_moves.txt")
 puts ""
 puts m.check_moves
+puts ""
