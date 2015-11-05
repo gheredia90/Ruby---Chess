@@ -18,3 +18,10 @@ c6 b5
 c6 c5
 c6 d6
 c6 d5
+f7 a7
+f7 h5
+h5 h2
+h5 h1
+g2 h3
+g2 g4
+g2 f3

@@ -40,10 +40,14 @@ class MoveValidator
 
 	def check_move(initial_position, final_position)		
 		piece_color, piece_type = @board.get_piece(initial_position)[0], @board.get_piece(initial_position)[1]
-		destination_color = @board.get_piece(final_position)[0]
-		free_space = piece_color == destination_color ? false : true 
-		piece = create_piece(piece_color, piece_type)
-		valid_move = piece.valid_move?(@board, initial_position, final_position)
+		destination_color = @board.get_piece(final_position)[0]		
+		piece = create_piece(piece_color, piece_type)		
+		if piece_type == 'P'
+			valid_move, free_space = piece.valid_move?(@board, initial_position, final_position)			
+		else
+			free_space = piece_color == destination_color ? false : true
+			valid_move = piece.valid_move?(@board, initial_position, final_position)
+		end	
 		free_space && valid_move ? "LEGAL" : "ILLEGAL"
 	end	
 
